@@ -1,58 +1,66 @@
-# Camera Calibration using OpenCV
-_Автор: Меркурьев М. А._\
-_Дальневосточный федеральный университет, 2025_
+# 🎯 Camera Calibration using OpenCV
 
-## Описание проекта
+[![en](https://img.shields.io/badge/lang-en-red.svg)](https://github.com/Bit-Maximum/Camera-Collibration/blob/main/README.md)
+[![ru](https://img.shields.io/badge/lang-ru-blue.svg)](https://github.com/Bit-Maximum/Camera-Collibration/blob/main/translation/README.ru.md)
 
-Этот проект выполняет калибровку камеры с использованием OpenCV. Основная цель — найти параметры камеры (матрицу камеры и коэффициенты дисторсии) на основе изображений шахматной доски.
+### Maxim Merkurev
+_Far Eastern Federal University, 2025_
 
-## Установка
+---
 
-Перед началом работы убедитесь, что у вас установлены Python и необходимые библиотеки.
+## 📚 About the project
 
-### Установка зависимостей:
+This project performs **camera calibration** using a set of chessboard images with the **OpenCV** library.
 
+Goal: Determine the **camera matrix** and **distortion coefficients** required to correct image distortion.
+
+---
+
+## 🚀 How to Run
+
+1. Clone the repository:
 ```bash
-pip install opencv-python numpy
+git clone https://github.com/Bit-Maximum/Camera-Collibration.git
+cd Camera-Collibration
 ```
 
-## Запуск
+2. Install the dependencies:
+```bash
+pip install -r requirements.txt
+```
 
-Разместите изображения шахматной доски в директорию `images/`. Пример фото сделанных на Realme C21:
+3. Place your chessboard images in the `images/` directory. Example: photos taken using a Realme C21 smartphone:
 
-![Calibration GIF](example.gif)
+![Calibration GIF](translation/example.gif)
 
-### Запустите скрипт:
+> _It's recommended that the board fills a large portion of the frame and is captured from various angles._
+
+4. Run the calibration script:
 ```
 python calibration.py
 ```
-Во время исполнения для каждого изображения будут выведены распознанные точки.
-После завершения работы программы в консоль будут выведены:
-- Матрица камеры
-- Коэффициенты радиальных искажений
-- Векторы вращения
-- Векторы смещения
 
-## Структура проекта
+> During execution, the detected corners will be shown for each image.
+
+## 📂 Project Structure
 ```
 project_root/
-├── images/                 # Папка с изображениями шахматной доски
+├── images/                 # Folder containing chessboard images
 │   ├── image1.jpg
 │   ├── image2.jpg
 │   └── ...
-├── calibration.py          # Основной скрипт калибровки камеры
-└── README.md               # Документация проекта
+└── calibration.py          # Main camera calibration script
 ```
 
-## Результат:
+## 🧾 Output:
 
-### Программа выведет в консоль
-- camera_matrix — матрица камеры.
-- radial_distortion — коэффициенты радиальных искажений.
-- rotation_vectors — векторы вращения.
-- translation_vectors — векторы трансляции.
+### The program will print to the console:
+- 📐 Camera matrix (camera_matrix)
+- 🔍 Distortion coefficients (radial_distortion).
+- 🌀 Rotation vectors (rotation_vectors)
+- 📦 Translation vectors (translation_vectors)
 
-### Пример вывода параметров в консоль:
+### 💡 Example Output:
 ```
 Camera matrix:
 [[fx  0 cx]
@@ -69,7 +77,8 @@ Translation vectors:
 [array([...]), array([...]), ...]
 ```
 
-## Примечания
+## 📝 Tips
 
-Убедитесь, что шахматная доска хорошо освещена и запечатлена под разными углами для повышения точности калибровки.
-
+* Use **sharp images** with good lighting.
+* Make sure the chessboard occupies a **large portion** of the image — this improves accuracy.
+* For reliable calibration, it's best to use **at least five images**.
